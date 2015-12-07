@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/tabs"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:divider="@drawable/button_divider"
+        android:showDividers="middle"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/personal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Personal"
+            android:background="#FFF"
+            />
+
+        <Button
+            android:id="@+id/friends"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Friends"
+            android:background="#FFF"
+            />
+
+        <Button
+            android:id="@+id/all"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:background="#FFF"
+            />
+
+        <Button
+            android:id="@+id/schedule"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:background="#FFF"
+            />
+
+        <Button
+            android:id="@+id/settings"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:background="#FFF"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
