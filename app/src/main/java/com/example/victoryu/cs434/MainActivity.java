@@ -2,21 +2,10 @@ package com.example.victoryu.cs434;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends FragmentActivity {
     @Override
@@ -44,6 +33,15 @@ public class MainActivity extends FragmentActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         MyMapFragment personal = new MyMapFragment();
         fragmentTransaction.replace(R.id.fragment_container, personal, "PERSONAL");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void showHistoryMap(View historyButton) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        HistoryFragment history = new HistoryFragment();
+        fragmentTransaction.replace(R.id.fragment_container, history, "HISTORY");
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

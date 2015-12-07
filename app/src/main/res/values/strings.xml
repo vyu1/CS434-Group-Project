@@ -2,4 +2,5 @@
     <string name="app_name">CS434</string>
     <string name="title_activity_main">Map</string>
     <string name="title_activity_edit">Edit Information</string>
+    <string name="title_activity_history">History</string>
 </resources>
