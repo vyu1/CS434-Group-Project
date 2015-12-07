@@ -46,6 +46,15 @@ public class MainActivity extends FragmentActivity {
         fragmentTransaction.commit();
     }
 
+    public void showAllMap(View allButton) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        AllMapFragment all = new AllMapFragment();
+        fragmentTransaction.replace(R.id.fragment_container, all, "ALL");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
     @Override
     public void onBackPressed() {
         if (getFragmentManager().getBackStackEntryCount() == 0) {
