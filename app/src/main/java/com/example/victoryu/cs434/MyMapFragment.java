@@ -41,24 +41,38 @@ public class MyMapFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap map) {
-        int px = getResources().getDimensionPixelSize(R.dimen.small_map_marker_size);
-        Bitmap mDotMarkerBitmap = Bitmap.createBitmap(px, px, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(mDotMarkerBitmap);
-        Drawable shape = getResources().getDrawable(R.drawable.bubble);
-        shape.setBounds(0, 0, mDotMarkerBitmap.getWidth(), mDotMarkerBitmap.getHeight());
+        int smallBubbleSize = getResources().getDimensionPixelSize(R.dimen.small_map_marker_size);
+        Bitmap blueMarkerBitmap = Bitmap.createBitmap(smallBubbleSize, smallBubbleSize, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(blueMarkerBitmap);
+        Drawable shape = getResources().getDrawable(R.drawable.blue_bubble);
+        shape.setBounds(0, 0, blueMarkerBitmap.getWidth(), blueMarkerBitmap.getHeight());
         shape.draw(canvas);
 
+        int mediumBubbleSize = getResources().getDimensionPixelSize(R.dimen.medium_map_marker_size);
+        Bitmap yellowMarkerBitmap = Bitmap.createBitmap(mediumBubbleSize, mediumBubbleSize, Bitmap.Config.ARGB_8888);
+        Canvas canvas2 = new Canvas(yellowMarkerBitmap);
+        Drawable shape2 = getResources().getDrawable(R.drawable.yellow_bubble);
+        shape2.setBounds(0, 0, yellowMarkerBitmap.getWidth(), yellowMarkerBitmap.getHeight());
+        shape2.draw(canvas2);
+
+        int largeBubbleSize = getResources().getDimensionPixelSize(R.dimen.large_map_marker_size);
+        Bitmap redMarkerBitmap = Bitmap.createBitmap(largeBubbleSize, largeBubbleSize, Bitmap.Config.ARGB_8888);
+        Canvas canvas3 = new Canvas(redMarkerBitmap);
+        Drawable shape3 = getResources().getDrawable(R.drawable.red_bubble);
+        shape3.setBounds(0, 0, redMarkerBitmap.getWidth(), redMarkerBitmap.getHeight());
+        shape3.draw(canvas3);
+
         // Add a marker in Sydney, Australia, and move the camera.
-        LatLng mckeldin = new LatLng(38.985951, -76.945097);
-        map.addMarker(new MarkerOptions().position(mckeldin).title("Marker at McKeldin").icon(BitmapDescriptorFactory.fromBitmap(mDotMarkerBitmap)));
+        LatLng mckeldin = new LatLng(38.985986, -76.945110);
+        map.addMarker(new MarkerOptions().position(mckeldin).title("Marker at McKeldin").icon(BitmapDescriptorFactory.fromBitmap(redMarkerBitmap)));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(mckeldin, 16.0f));
 
         LatLng business = new LatLng(38.983107, -76.947447);
-        map.addMarker(new MarkerOptions().position(business).title("Marker at Smith School").icon(BitmapDescriptorFactory.fromBitmap(mDotMarkerBitmap)));
+        map.addMarker(new MarkerOptions().position(business).title("Marker at Smith School").icon(BitmapDescriptorFactory.fromBitmap(blueMarkerBitmap)));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(business, 16.0f));
 
         LatLng tydings = new LatLng(38.984758, -76.944056);
-        map.addMarker(new MarkerOptions().position(tydings).title("Marker at Tydings Hall").icon(BitmapDescriptorFactory.fromBitmap(mDotMarkerBitmap)));
+        map.addMarker(new MarkerOptions().position(tydings).title("Marker at Tydings Hall").icon(BitmapDescriptorFactory.fromBitmap(yellowMarkerBitmap)));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(tydings, 16.0f));
 
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
