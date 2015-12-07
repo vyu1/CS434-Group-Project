@@ -13,9 +13,12 @@ import android.widget.ListView;
  * Created by victoryu on 12/7/15.
  */
 public class HistoryFragment extends Fragment {
-    String[] times = {"Time", "9:00-10:00"};
-    String[] activities = {"Swimming", "Stat"};
-    String[] locations = {"Gym", "Armory", "Home"};
+    String[] times = {"Time", "9-10 AM", "10AM-12PM", "12-4 PM",
+            "4-5 PM", "5-8 PM", "8-11 PM"};
+    String[] activities = {"Activity", "Washing Up", "Econ. Class", "Studying",
+            "Group Meeting", "Studying", "Chilling"};
+    String[] locations = {"Location", "Home", "Tydings", "McKeldin",
+            "Smith School", "Library", "Home"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
