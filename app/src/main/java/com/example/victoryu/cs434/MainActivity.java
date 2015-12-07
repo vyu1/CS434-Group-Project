@@ -47,4 +47,13 @@ public class MainActivity extends FragmentActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            this.finish();
+        } else {
+            getFragmentManager().popBackStack();
+        }
+    }
 }

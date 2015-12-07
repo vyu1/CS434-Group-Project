@@ -1,25 +1,21 @@
 package com.example.victoryu.cs434;
 
-import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -50,10 +46,10 @@ public class MyMapFragment extends Fragment {
             shape.draw(canvas);
 
             int mediumBubbleSize = getResources().getDimensionPixelSize(R.dimen.medium_map_marker_size);
-            Bitmap yellowMarkerBitmap = Bitmap.createBitmap(mediumBubbleSize, mediumBubbleSize, Bitmap.Config.ARGB_8888);
-            Canvas canvas2 = new Canvas(yellowMarkerBitmap);
-            Drawable shape2 = getResources().getDrawable(R.drawable.yellow_bubble);
-            shape2.setBounds(0, 0, yellowMarkerBitmap.getWidth(), yellowMarkerBitmap.getHeight());
+            Bitmap orangeMarkerBitmap = Bitmap.createBitmap(mediumBubbleSize, mediumBubbleSize, Bitmap.Config.ARGB_8888);
+            Canvas canvas2 = new Canvas(orangeMarkerBitmap);
+            Drawable shape2 = getResources().getDrawable(R.drawable.orange_bubble);
+            shape2.setBounds(0, 0, orangeMarkerBitmap.getWidth(), orangeMarkerBitmap.getHeight());
             shape2.draw(canvas2);
 
             int largeBubbleSize = getResources().getDimensionPixelSize(R.dimen.large_map_marker_size);
@@ -64,16 +60,28 @@ public class MyMapFragment extends Fragment {
             shape3.draw(canvas3);
 
             LatLng mckeldin = new LatLng(38.985986, -76.945110);
-            map.addMarker(new MarkerOptions().position(mckeldin).title("Marker at McKeldin").icon(BitmapDescriptorFactory.fromBitmap(redMarkerBitmap)));
+            map.addMarker(new MarkerOptions().position(mckeldin).title("McKeldin").icon(BitmapDescriptorFactory.fromBitmap(redMarkerBitmap)));
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(mckeldin, 16.0f));
 
             LatLng business = new LatLng(38.983107, -76.947447);
-            map.addMarker(new MarkerOptions().position(business).title("Marker at Smith School").icon(BitmapDescriptorFactory.fromBitmap(blueMarkerBitmap)));
+            map.addMarker(new MarkerOptions().position(business).title("Smith").icon(BitmapDescriptorFactory.fromBitmap(blueMarkerBitmap)));
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(business, 16.0f));
 
             LatLng tydings = new LatLng(38.984758, -76.944056);
-            map.addMarker(new MarkerOptions().position(tydings).title("Marker at Tydings Hall").icon(BitmapDescriptorFactory.fromBitmap(yellowMarkerBitmap)));
+            map.addMarker(new MarkerOptions().position(tydings).title("Tydings").icon(BitmapDescriptorFactory.fromBitmap(orangeMarkerBitmap)));
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(tydings, 16.0f));
+
+            LatLng home = new LatLng(38.982411, -76.943272);
+            map.addMarker(new MarkerOptions().position(home).title("Home").icon(BitmapDescriptorFactory.fromBitmap(redMarkerBitmap)));
+
+            map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    Intent intent = new Intent(getActivity(), EditActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+            });
 
             map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         }
