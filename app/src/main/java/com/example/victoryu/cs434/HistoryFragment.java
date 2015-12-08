@@ -1,6 +1,5 @@
 package com.example.victoryu.cs434;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,15 +23,15 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_history, container, false);
 
-        ArrayAdapter timeAdapter = new ArrayAdapter<String>(getActivity(), R.layout.activity_list, times);
+        ArrayAdapter timeAdapter = new ArrayAdapter<String>(getActivity(), R.layout.textview_single, times);
         ListView timeListView = (ListView) v.findViewById(R.id.timeList);
         timeListView.setAdapter(timeAdapter);
 
-        ArrayAdapter locationAdapter = new ArrayAdapter<String>(getActivity(), R.layout.activity_list, activities);
+        ArrayAdapter locationAdapter = new ArrayAdapter<String>(getActivity(), R.layout.textview_single, activities);
         ListView locationListView = (ListView) v.findViewById(R.id.locationList);
         locationListView.setAdapter(locationAdapter);
 
-        ArrayAdapter activityAdapter = new ArrayAdapter<String>(getActivity(), R.layout.activity_list, locations);
+        ArrayAdapter activityAdapter = new ArrayAdapter<String>(getActivity(), R.layout.textview_single, locations);
         ListView activityListView = (ListView) v.findViewById(R.id.activityList);
         activityListView.setAdapter(activityAdapter);
 

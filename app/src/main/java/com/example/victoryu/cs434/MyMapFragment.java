@@ -60,15 +60,15 @@ public class MyMapFragment extends Fragment {
             shape3.draw(canvas3);
 
             LatLng mckeldin = new LatLng(38.985986, -76.945110);
-            map.addMarker(new MarkerOptions().position(mckeldin).title("McKeldin").icon(BitmapDescriptorFactory.fromBitmap(largeBubble)));
+            map.addMarker(new MarkerOptions().position(mckeldin).title("McKeldin Library").icon(BitmapDescriptorFactory.fromBitmap(largeBubble)));
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(mckeldin, 16.0f));
 
             LatLng business = new LatLng(38.983107, -76.947447);
-            map.addMarker(new MarkerOptions().position(business).title("Smith").icon(BitmapDescriptorFactory.fromBitmap(smallBubble)));
+            map.addMarker(new MarkerOptions().position(business).title("Smith School").icon(BitmapDescriptorFactory.fromBitmap(smallBubble)));
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(business, 16.0f));
 
             LatLng tydings = new LatLng(38.984758, -76.944056);
-            map.addMarker(new MarkerOptions().position(tydings).title("Tydings").icon(BitmapDescriptorFactory.fromBitmap(mediumBubble)));
+            map.addMarker(new MarkerOptions().position(tydings).title("Tydings Hall").icon(BitmapDescriptorFactory.fromBitmap(mediumBubble)));
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(tydings, 16.0f));
 
             LatLng home = new LatLng(38.982411, -76.943272);
@@ -77,8 +77,9 @@ public class MyMapFragment extends Fragment {
             map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override
                 public boolean onMarkerClick(Marker marker) {
-                    Intent intent = new Intent(getActivity(), EditActivity.class);
-                    startActivity(intent);
+                    Intent editIntent = new Intent(getActivity(), EditActivity.class);
+                    editIntent.putExtra("name", marker.getTitle());
+                    startActivity(editIntent);
                     return true;
                 }
             });

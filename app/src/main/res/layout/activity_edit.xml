@@ -4,27 +4,20 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Type in the Name of this location: " />
-
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name"
-        android:text="McKeldin Library" />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Type in the activity you do here: " />
+        android:id="@+id/locationName"
+        android:text=""
+        android:textSize="24sp"/>
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/activity"
-        android:text="Studying" />
+        android:textSize="24sp"
+        android:hint="Type in the activity you do here: "
+        android:text="" />
 
     <Button
         android:id="@+id/saveButton"
